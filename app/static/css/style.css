@@ -1,0 +1,13 @@
+.submit-btn {
+   margin-top: 8rem;
+   margin-left: 10%;
+}
+
+.display-cards {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   flex-wrap: wrap;
+   color: red;
+   
+}
