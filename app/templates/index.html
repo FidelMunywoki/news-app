@@ -24,15 +24,29 @@
 </div>
 
 
-<div class="container d-flex">
+<div class="container-fluid text-center">
 
     <!-- News  -->
+    <div class="row  ">
+        <div class="col-md-12">
+            <h3> Treading News |</h3>
+            {{ macro.displayNewsList(news)}}
+
+        </div>
+        
+        
+      
+       
+    </div>
+
+
+    <!-- Available news sources -->
     <div class="row ">
-        <h3> Treading News |</h3>
+        <h3> Available News Sources|</h3>
         <div class="display-cards d-flex row">
-            <div class="col-md-4 col-lg-6 col-sm-12">
+            <div class="col-md-3 col-lg-6 col-sm-12">
                 <ul class=>
-                    {{ macro.displayNewsList(news)}}
+                    {{ macro.displayNewsSourceList(news_sources)}}
     
                    
                 </ul>

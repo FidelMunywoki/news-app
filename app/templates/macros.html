@@ -4,17 +4,52 @@
 
 
     {% for news in news_list %}
+        <div class="col-md-3 card">
+            <div class="row mt">
+                <div class="panel panel-default">
+                    <div class="panel-heading"> <a href="{{news.url}}"> {{news.title}}</a></div>
+                    <div class="panel-body">
+                       
+                         <img src="{{ news.urlToImage }}" alt="{{ news.title }} " class="img-responsive size">
+                    </div>
+                    <div class="panel-footer">  <p> {{ news.description }}</p></div>
+                  </div>
+    
+
+            </div>
+           
+       
+
+           
+              
+
+        </div>
+
+    {% endfor %}
+
+{% endmacro %}
+
+
+
+<!-- Displaying news sources list macro  -->
+{% macro displayNewsSourceList(news_sources_list) %}
+
+
+
+    {% for news_source in news_sources_list %}
         <div class=" display">
            
-            <!-- <p> {{news.content|truncate(100)}} </p> -->
+            
 
-            <div class="panel panel-default">
-                <div class="panel-heading"> <a href="{{news.url}}"> {{news.title}}</a></div>
-                <div class="panel-body">
+            <div class="">
+                <div class=""> <a href="{{news_source.source_url}}"> {{news_source.name}}</a></div>
+                <div class="">
+
+                    <p>{{ news_source.source_description }}</p>
                    
-                     <img src="{{ news.urlToImage }}" alt="{{ news.title }} " class="img-responsive">
+                     
                 </div>
-                <div class="panel-footer">  <p> {{ news.description }}</p></div>
+                <div class="">  <p> {{ news_source.category }} |  {{news_source.country}}</p></div>
               </div>
 
               

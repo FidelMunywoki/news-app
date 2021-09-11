@@ -1,15 +1,18 @@
 import urllib.request, json
-from app.news import Everything
+from app.news import Everything, EverythingSources
 
 
 api_key = None
-# Getting the movie base url
-base_url = None
+sources_url = None
+article_url = None
+top_headlines_url = None
+everything_url = None 
+everything_search_url = None 
 
 def configure_request(app):
     global api_key,base_url
     api_key = app.config['NEWS_API_KEY']
-    base_url = app.config['NEWS_API_BASE_URL']
+    sources_url = app.config['NEWS_API_BASE_URL']
 
 
 def get_news():
@@ -59,3 +62,52 @@ def process_results(news_list):
             news_results.append(news_object)
             
     return news_results
+
+# news sources
+
+def get_news_sources():
+    '''
+    Function tha gets the json response to our url request
+    '''
+    
+    # get_news_url = base_url.format(api_key)
+    get_news_sources_url = 'https://newsapi.org/v2/top-headlines/sources?&apiKey=26ea37785fde4254830dfa0d226ac805'
+    with urllib.request.urlopen(get_news_sources_url) as url:
+        get_news_sources_data = url.read()
+        get_news_sources_response = json.loads(get_news_sources_data)
+        
+        news_results = None
+        
+        if get_news_sources_response['sources']:
+            news_sources_results_list = get_news_sources_response['sources']
+            news_sources_results = process_sources_results(news_sources_results_list)
+            
+            
+    return news_sources_results
+
+def process_sources_results(news_sources_list):
+    '''
+    Function  that processes the news sources result and transform them to a list of Objects
+
+    Args:
+        news_list: A list of dictionaries that contain sources details
+
+    Returns :
+        news_results: A list of news objects
+    '''
+    
+    news_sources_results = []
+    for news_sources_item in news_sources_list:
+        id  = news_sources_item.get('id')
+        source_name =news_sources_item.get('name')
+        source_description = news_sources_item.get('description')
+        source_url = news_sources_item.get('url')
+        category = news_sources_item.get('category')
+        language = news_sources_item.get('language')
+        country = news_sources_item.get('country')
+        
+        if source_name:
+            news_source_object = EverythingSources(id, source_name, source_description, source_url, category, language, country)
+            news_sources_results.append(news_source_object)
+            
+    return news_sources_results

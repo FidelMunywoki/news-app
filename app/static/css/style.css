@@ -11,3 +11,12 @@
    color: red;
    
 }
+
+.card {
+   box-shadow: 2px 4px 12px 2px #DCDCDC;
+   /* margin: 0.25rem; */
+   padding-top: 1rem;
+   padding-bottom: 1rem;
+   border-radius: 8px;
+   height: 200px;
+}
