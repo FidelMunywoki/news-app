@@ -1,6 +1,6 @@
-from flask import render_template
+from flask import render_template, redirect, url_for, request
 from . import main
-from ..requests import get_news, get_news_sources
+from ..requests import get_news_sources, get_news_articles
 
 
 #views
@@ -14,7 +14,13 @@ def index():
     """
     title = 'PASHA - Home of Treading News'
     
-    news = get_news()
-    news_sources = get_news_sources()
+    general_category = get_news_sources('general')
+    business_category = get_news_sources('business')
+    entertainment_category = get_news_sources('entertainment')
+    sports_category = get_news_sources('sports')
+    technology_category = get_news_sources('technology')
+    science_category = get_news_sources('science')
+    health_category = get_news_sources('health')
     
-    return render_template('index.html', title = title, news = news, news_sources = news_sources)
+    
+    return render_template('index.html', title = title, general = general_category, business = business_category, entertainment = entertainment_category, sport = sports_category,technology = technology_category, science = science_category, health = health_category)
