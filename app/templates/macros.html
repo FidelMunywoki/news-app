@@ -1,0 +1,26 @@
+<!-- Displaying news list macro  -->
+{% macro displayNewsList(news_list) %}
+
+
+
+    {% for news in news_list %}
+        <div class=" display">
+           
+            <!-- <p> {{news.content|truncate(100)}} </p> -->
+
+            <div class="panel panel-default">
+                <div class="panel-heading"> <a href="{{news.url}}"> {{news.title}}</a></div>
+                <div class="panel-body">
+                   
+                     <img src="{{ news.urlToImage }}" alt="{{ news.title }} " class="img-responsive">
+                </div>
+                <div class="panel-footer">  <p> {{ news.description }}</p></div>
+              </div>
+
+              
+
+        </div>
+
+    {% endfor %}
+
+{% endmacro %}
