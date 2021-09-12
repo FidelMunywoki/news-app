@@ -24,3 +24,15 @@ def index():
     
     
     return render_template('index.html', title = title, general = general_category, business = business_category, entertainment = entertainment_category, sport = sports_category,technology = technology_category, science = science_category, health = health_category)
+
+
+@main.route('/articles/<source_id>')
+def articles(source_id):
+  """
+  Function that returns articles accordig to thier sources
+  
+  """
+  news_source = get_news_articles(source_id)
+  title = f'{source_id} | All Articles'
+  
+  return render_template('articles.html', title = title, name = source_id,news = news_source)
