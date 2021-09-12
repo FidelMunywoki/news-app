@@ -1,22 +1,23 @@
-.submit-btn {
-   margin-top: 8rem;
-   margin-left: 10%;
+html {
+   scroll-behavior: smooth;
 }
 
-.display-cards {
-   display: flex;
-   flex-direction: row;
-   justify-content: space-around;
-   flex-wrap: wrap;
-   color: red;
+.pt-5 {
+   padding-top: 5%;
+
+}
+
+.style-source-name {
+   border-right: solid black 2px;
    
 }
 
-.card {
+.card-display {
    box-shadow: 2px 4px 12px 2px #DCDCDC;
    /* margin: 0.25rem; */
    padding-top: 1rem;
    padding-bottom: 1rem;
    border-radius: 8px;
    height: 200px;
+   background-color: grey;
 }
