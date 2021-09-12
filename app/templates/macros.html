@@ -4,15 +4,15 @@
 {% for category in categories %}
 
 <div class="col-md-3 card-display">
-    <div class="row mt">
+    <div class="row mt-5">
         <div class="col-md-5 style-source-name">
-            <h4>{{category.source_name}}</h4>
+            <h4>{{category.name}}</h4>
         </div>
 
         <div class="col-md-7 style-source-details">
-            <p> {{category.description|100}}</p>
+            <p> {{category.description[:100]}}</p>
 
-            <a class="btn btn-warning" href="/articles/{{category.soource_id}}%20">Read Articles</a>
+            <a class="btn btn-warning" href="/articles/{{category.id}}%20">Read Articles</a>
 
         </div>
 
