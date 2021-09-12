@@ -7,8 +7,7 @@ api_key = None
 sources_url = None
 articles_url = None
 top_headlines_url = None
-everything_url = None 
-everything_search_url = None 
+
 
 def configure_request(app):
     global api_key,base_url
@@ -27,7 +26,7 @@ def get_news_sources(category):
     '''
     
     # get_news_url = base_url.format(api_key)
-    get_news_sources_url = 'https://newsapi.org/v2/sources?language=en&category={}&apiKey={}'.format(category, api_key)
+    get_news_sources_url = 'https://newsapi.org/v2/sources?language=en&category={}&apiKey=26ea37785fde4254830dfa0d226ac805'.format(category)
     with urllib.request.urlopen(get_news_sources_url) as url:
         get_news_sources_data = url.read()
         get_news_sources_response = json.loads(get_news_sources_data)
@@ -70,13 +69,14 @@ def process_sources_results(news_sources_list):
 
 
 # get new articles
-def get_news_articles(source_id,article):
+def get_news_articles(source_id):
     '''
     Function tha gets the json response to our url request
     '''
     
     # get_news_url = base_url.format(api_key)
-    get_news_articles_url = articles_url.format(source_id, article, api_key)
+    get_news_articles_url ='https://newsapi.org/v2/top-headlines?sources={}&apiKey=26ea37785fde4254830dfa0d226ac805'.format(source_id)
+    print(get_news_articles_url)
     with urllib.request.urlopen(get_news_articles_url) as url:
         get_news_articles_data = url.read()
         get_news_articles_response = json.loads(get_news_articles_data)
