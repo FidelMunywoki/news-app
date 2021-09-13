@@ -26,8 +26,8 @@ As user I would like to:
 ## Installation / Setup instruction
 
 1. python3.9
-2. pyperclip
-3. pip
+2. pip
+3. Heroku CLI
 
 ### clone
 * clone https://github.com/FidelMunywoki/news-app.git
