@@ -26,7 +26,7 @@ def get_news_sources(category):
     '''
     
     # get_news_url = base_url.format(api_key)
-    get_news_sources_url = 'https://newsapi.org/v2/sources?language=en&category={}&apiKey=26ea37785fde4254830dfa0d226ac805'.format(category)
+    get_news_sources_url = 'https://newsapi.org/v2/sources?language=en&category={}&apiKey=bf90fe5e1cce444a926683448ecc1eb2'.format(category)
     with urllib.request.urlopen(get_news_sources_url) as url:
         get_news_sources_data = url.read()
         get_news_sources_response = json.loads(get_news_sources_data)
@@ -75,7 +75,7 @@ def get_news_articles(source_id):
     '''
     
     # get_news_url = base_url.format(api_key)
-    get_news_articles_url ='https://newsapi.org/v2/top-headlines?sources={}&apiKey=26ea37785fde4254830dfa0d226ac805'.format(source_id)
+    get_news_articles_url ='https://newsapi.org/v2/top-headlines?sources={}&apiKey=bf90fe5e1cce444a926683448ecc1eb2'.format(source_id)
     print(get_news_articles_url)
     with urllib.request.urlopen(get_news_articles_url) as url:
         get_news_articles_data = url.read()
@@ -124,7 +124,7 @@ def topheadlines(category):
     '''
     Function that gets articles based on the source id
     '''
-    get_topheadlines_url = top_headlines_url.format(api_key)
+    get_topheadlines_url = top_headlines_url+'bf90fe5e1cce444a926683448ecc1eb2'
 
     with urllib.request.urlopen(get_topheadlines_url) as url:
         topheadlines_data = url.read()

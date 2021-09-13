@@ -2,7 +2,7 @@ html {
    scroll-behavior: smooth;
 }
 
-.pt-5 {
+.mt-5 {
    padding-top: 5%;
 
 }
@@ -14,10 +14,18 @@ html {
 
 .card-display {
    box-shadow: 2px 4px 12px 2px #DCDCDC;
-   /* margin: 0.25rem; */
    padding-top: 1rem;
    padding-bottom: 1rem;
    border-radius: 8px;
    height: 200px;
-   background-color: grey;
+ 
+}
+
+.margin-top {
+   margin-top: 6%;
+   height: 300px;
+}
+
+.size {
+   height: 150px !important;
 }
