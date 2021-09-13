@@ -124,7 +124,7 @@ def topheadlines(category):
     '''
     Function that gets articles based on the source id
     '''
-    get_topheadlines_url = top_headlines_url+'bf90fe5e1cce444a926683448ecc1eb2'
+    get_topheadlines_url = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=bf90fe5e1cce444a926683448ecc1eb2'
 
     with urllib.request.urlopen(get_topheadlines_url) as url:
         topheadlines_data = url.read()
